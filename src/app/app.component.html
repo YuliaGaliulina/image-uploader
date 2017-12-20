@@ -1,5 +1,2 @@
-<input type="file" value="upload" (change)="upload($event.target.files[0])">
-<div class="progress_bar">
-  <div class="progress" [style.width.%]="progress.percentage"></div>
-</div>
-<img src="{{fileUrl.url}}" alt="">
+<app-upload-form #upload [subfolder]="'subfolder/'"></app-upload-form>
+<img src="{{upload.fileUrl.url}}" alt="">

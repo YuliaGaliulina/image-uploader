@@ -9,8 +9,15 @@ export class UploaderService {
   basePath: string = "uploads/";
   imageUrl: string;
 
-  uploadFile(file, progress: { percentage: number }, fileUrl: { url: string }) {
-    const storageRef = firebase.storage().ref(this.basePath + file.name);
+  uploadFile(
+    file,
+    subfolder: string,
+    progress: { percentage: number },
+    fileUrl: { url: string }
+  ) {
+    const storageRef = firebase
+      .storage()
+      .ref(this.basePath + subfolder + file.name);
     const uploadTask = storageRef.put(file);
 
     uploadTask.on(
